@@ -13,7 +13,7 @@ int main(){
 	vector<Node*> vecs;
 	while(true){
 		char input[80];
-		cout<<"Input ADDVERTEX to add a vertex, ADDEDGE to add a edge,and QUIT to exit the program."<<endl;
+		cout<<"Input ADDVERTEX to add a vertex, ADDEDGE to add a edge, PRINT to print, DELETE to delete a vertex, and QUIT to exit the program."<<endl;
 		cin.getline(input, sizeof(input));
 		for(int i = 0; i<sizeof(input); i++){
 			input[i] = toupper(input[i]);
