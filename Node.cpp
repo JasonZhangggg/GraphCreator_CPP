@@ -29,3 +29,13 @@ vector<Node*> Node::getEdges(){
 void Node:: addEdge(int newWeight, Node* newSecond){
 	edges.push_back(new Node("", newWeight, newSecond));
 }
+void Node:: removeEdge(char* val){
+	vector<Node*>::iterator it;
+	for(it = edges.begin(); it != edges.end(); ++it){
+		if(strcmp((*it)->getSecond()->getVal(), val) == 0){
+			delete (*it);
+			edges.erase(it);
+			return;
+		}
+	}
+}

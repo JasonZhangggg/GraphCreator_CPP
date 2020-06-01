@@ -36,7 +36,6 @@ int main(){
 			cin>>weight;
 			cin.ignore();
 			addEdge(vecs, first, second, weight);
-			cout<<vecs[0]->getEdges()[0]->getVal()<<endl;
 		}
 		else if(strcmp(input, "PRINT") == 0){
 			print(vecs);
@@ -81,7 +80,10 @@ void removeVertex(vector<Node*> &vecs, char* val){
 		if(strcmp((*it)->getVal(), val) == 0){
 			delete (*it);
 			vecs.erase(it);
-			return;
+			--it;
+		}
+		else{
+			(*it)->removeEdge(val);
 		}
 	}
 }
@@ -92,8 +94,9 @@ void print(vector<Node*>vecs){
 		vector<Node*>::iterator it2;
 		cout<<"The vertex: "<<(*it)->getVal()<<" is connected to:";
 		for(it2 = edges.begin(); it2 != edges.end(); ++it2){
-			cout<<" "<<(*it2)->getSecond()->getVal();
+			cout<<"   "<<(*it2)->getSecond()->getVal()<<" with weight:"<<(*it2)->getWeight();
 		}
 		cout<<endl;
 	}
 }
+

@@ -15,7 +15,8 @@ class Node{
 		int getWeight();
 		Node* getSecond();
 		vector<Node*> getEdges();
-		void addEdge(int weight, Node* second);
+		void addEdge(int, Node*);
+		void removeEdge(char*);
 		~Node();
 	private:
 		int weight;
